@@ -1,0 +1,4 @@
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL.Interface\bin\Debug\SocialNetwork.BLL.Interface.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL.Interface\bin\Debug\SocialNetwork.BLL.Interface.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL.Interface\obj\Debug\SocialNetwork.BLL.Interface.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL.Interface\obj\Debug\SocialNetwork.BLL.Interface.pdb

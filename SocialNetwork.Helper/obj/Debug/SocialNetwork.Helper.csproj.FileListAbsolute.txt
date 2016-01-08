@@ -1,0 +1,7 @@
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\bin\Debug\SocialNetwork.Helper.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\bin\Debug\SocialNetwork.Helper.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\bin\Debug\AutoMapper.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\bin\Debug\AutoMapper.xml
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\obj\Debug\SocialNetwork.Helper.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\obj\Debug\SocialNetwork.Helper.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.Helper\obj\Debug\SocialNetwork.Helper.csprojResolveAssemblyReference.cache

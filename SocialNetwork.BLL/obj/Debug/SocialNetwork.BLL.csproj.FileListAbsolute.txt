@@ -1,0 +1,13 @@
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.BLL.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.BLL.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.DAL.Interface.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\AutoMapper.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.DAL.Interface.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\AutoMapper.xml
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\obj\Debug\SocialNetwork.BLL.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\obj\Debug\SocialNetwork.BLL.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.BLL.Interface.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.Helper.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.BLL.Interface.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\bin\Debug\SocialNetwork.Helper.pdb
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.BLL\obj\Debug\SocialNetwork.BLL.csprojResolveAssemblyReference.cache

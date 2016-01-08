@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Business Logic Layer", "{4064DFA9-4C76-4308-8063-F1F096CDD5DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{9C8D2B88-4B92-4E9B-90F4-0E6230E3B72A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Model", "Domain Model", "{DE4F8DBA-F0D0-4251-8F97-953E05ED225F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation Layer", "Presentation Layer", "{CF321BE2-0B3F-4464-A245-42185B171F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.BLL", "SocialNetwork.BLL\SocialNetwork.BLL.csproj", "{433F028D-6742-458A-BCD0-B65E420F9DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.BLL.Interface", "SocialNetwork.BLL.Interface\SocialNetwork.BLL.Interface.csproj", "{CF419081-DE94-42FC-A2AA-16F54128B466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.DAL", "SocialNetwork.DAL\SocialNetwork.DAL.csproj", "{5CA68BB3-E761-4480-82FC-780109A40558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.DAL.Interface", "SocialNetwork.DAL.Interface\SocialNetwork.DAL.Interface.csproj", "{F6883EF0-771F-44B9-8820-725B2BC06729}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helper Methods", "Helper Methods", "{CE51C2F3-4439-42EF-8CC1-9F0167C37B89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.ORM", "SocialNetwork.ORM\SocialNetwork.ORM.csproj", "{DDA0701E-E144-4C84-87B1-6271944CF06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.WEB", "SocialNetwork.WEB\SocialNetwork.WEB.csproj", "{72306418-D2B6-4EB2-8556-460C37943C1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.Helper", "SocialNetwork.Helper\SocialNetwork.Helper.csproj", "{682BDE72-B097-45FD-B343-D341575C636E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependency Resolver", "Dependency Resolver", "{C908CA1D-FEB4-433C-AE09-B5E9C550CD8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyResolver", "DependencyResolver\DependencyResolver.csproj", "{39EEA0DC-2741-4FCA-8659-B21BA178E70C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{433F028D-6742-458A-BCD0-B65E420F9DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433F028D-6742-458A-BCD0-B65E420F9DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433F028D-6742-458A-BCD0-B65E420F9DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433F028D-6742-458A-BCD0-B65E420F9DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF419081-DE94-42FC-A2AA-16F54128B466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF419081-DE94-42FC-A2AA-16F54128B466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF419081-DE94-42FC-A2AA-16F54128B466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF419081-DE94-42FC-A2AA-16F54128B466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA68BB3-E761-4480-82FC-780109A40558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA68BB3-E761-4480-82FC-780109A40558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA68BB3-E761-4480-82FC-780109A40558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA68BB3-E761-4480-82FC-780109A40558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6883EF0-771F-44B9-8820-725B2BC06729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6883EF0-771F-44B9-8820-725B2BC06729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6883EF0-771F-44B9-8820-725B2BC06729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6883EF0-771F-44B9-8820-725B2BC06729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA0701E-E144-4C84-87B1-6271944CF06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA0701E-E144-4C84-87B1-6271944CF06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA0701E-E144-4C84-87B1-6271944CF06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA0701E-E144-4C84-87B1-6271944CF06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72306418-D2B6-4EB2-8556-460C37943C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72306418-D2B6-4EB2-8556-460C37943C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72306418-D2B6-4EB2-8556-460C37943C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72306418-D2B6-4EB2-8556-460C37943C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682BDE72-B097-45FD-B343-D341575C636E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682BDE72-B097-45FD-B343-D341575C636E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682BDE72-B097-45FD-B343-D341575C636E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682BDE72-B097-45FD-B343-D341575C636E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39EEA0DC-2741-4FCA-8659-B21BA178E70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39EEA0DC-2741-4FCA-8659-B21BA178E70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39EEA0DC-2741-4FCA-8659-B21BA178E70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39EEA0DC-2741-4FCA-8659-B21BA178E70C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{433F028D-6742-458A-BCD0-B65E420F9DB9} = {4064DFA9-4C76-4308-8063-F1F096CDD5DA}
+		{CF419081-DE94-42FC-A2AA-16F54128B466} = {4064DFA9-4C76-4308-8063-F1F096CDD5DA}
+		{5CA68BB3-E761-4480-82FC-780109A40558} = {9C8D2B88-4B92-4E9B-90F4-0E6230E3B72A}
+		{F6883EF0-771F-44B9-8820-725B2BC06729} = {9C8D2B88-4B92-4E9B-90F4-0E6230E3B72A}
+		{DDA0701E-E144-4C84-87B1-6271944CF06F} = {DE4F8DBA-F0D0-4251-8F97-953E05ED225F}
+		{72306418-D2B6-4EB2-8556-460C37943C1B} = {CF321BE2-0B3F-4464-A245-42185B171F69}
+		{682BDE72-B097-45FD-B343-D341575C636E} = {CE51C2F3-4439-42EF-8CC1-9F0167C37B89}
+		{39EEA0DC-2741-4FCA-8659-B21BA178E70C} = {C908CA1D-FEB4-433C-AE09-B5E9C550CD8A}
+	EndGlobalSection
+EndGlobal
