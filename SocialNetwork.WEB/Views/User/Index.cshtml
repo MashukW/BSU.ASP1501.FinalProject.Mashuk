@@ -1,0 +1,71 @@
+﻿@model SocialNetwork.WEB.Models.LoggedModel.ProfileViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Personal Information</h2>
+<div class="form-group">
+
+    <div>
+        @Html.LabelFor(m => m.Id)
+        @Html.DisplayFor(m => m.Id)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.MiddleName)
+        @Html.DisplayFor(m => m.MiddleName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.MobilePhoneNumber)
+        @Html.DisplayFor(m => m.MobilePhoneNumber)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Age)
+        @Html.DisplayFor(m => m.Age)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.DateOfBirth)
+        @Html.DisplayFor(m => m.DateOfBirth)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Gender)
+        @Html.DisplayFor(m => m.Gender)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Country)
+        @Html.DisplayFor(m => m.Country)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.City)
+        @Html.DisplayFor(m => m.City)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Street)
+        @Html.DisplayFor(m => m.Street)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.HouseNumber)
+        @Html.DisplayFor(m => m.HouseNumber)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.CompanyOfWork)
+        @Html.DisplayFor(m => m.CompanyOfWork)
+    </div>
+
+</div>
+

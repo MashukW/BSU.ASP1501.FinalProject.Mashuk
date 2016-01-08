@@ -1,0 +1,13 @@
+﻿@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("Administrator"))
+    {
+        <li>@Html.ActionLink("Moderating messages", "Index", "User")</li>
+        <li>@Html.ActionLink("Manage users", "Index", "User")</li>
+    }
+
+    if (User.IsInRole("Moderator"))
+    {
+        <li>@Html.ActionLink("Moderating messages", "Index", "User")</li>
+    }
+}
