@@ -16,11 +16,14 @@ namespace SocialNetwork.WEB.Controllers
     {
         private readonly IUserService _userService;
         private readonly IFriendService _friendService;
+        private readonly IUserProfileService _profileService;
 
-        public FriendController(IUserService userService, IFriendService friendService)
+        public FriendController(IUserService userService, IFriendService friendService, 
+            IUserProfileService profileService)
         {
             _userService = userService;
             _friendService = friendService;
+            _profileService = profileService;
         }
 
         public ActionResult Index()
@@ -30,20 +33,30 @@ namespace SocialNetwork.WEB.Controllers
             if (user == null)
                 RedirectToAction("Index", "Home");
 
-            var friends = GetAllFriends(user.Id);
-            var potentialFriends = GetAllUser().Except(friends, new UserViewModelComparer());
-            
-            ViewBag.UserFriends = friends;
-            ViewBag.UserPotentialFriends = potentialFriends;
+            GetInfoAboutFriends(user.Id);
 
             return View();
         }
 
         public ActionResult ShowFriend(string id)
         {
-            throw new NotImplementedException();
-        }
+            if (string.IsNullOrEmpty(id))
+                RedirectToAction("Index", "User");
 
+            int userId;
+            int.TryParse(id, out userId);
+            
+            ProfileViewModel userProfile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetById(userId));
+            UserViewModel userForShow = EntityConvert<UserBLL, UserViewModel>(_userService.GetById(userId));
+            
+            if (IsFriend(userForShow.Email))
+                ViewBag.IsFriend = true;
+
+            ViewBag.UserForShow = userForShow;
+
+            return View(userProfile);
+        }
+        
         public ActionResult AddFriend(string userPotentialFriends)
         {
             var user = GetUser();
@@ -53,18 +66,23 @@ namespace SocialNetwork.WEB.Controllers
 
             _friendService.Add(user.Id, friendUserId);
 
-            var friends = GetAllFriends(user.Id);
-            var potentialFriends = GetAllUser().Except(friends, new UserViewModelComparer());
-
-            ViewBag.UserFriends = friends;
-            ViewBag.UserPotentialFriends = potentialFriends;
+            GetInfoAboutFriends(user.Id);
 
             return View("Index");
         }
 
-        public ActionResult RemoveFriend(string id)
+        public ActionResult RemoveFriend(string userFriends)
         {
-            throw new NotImplementedException();
+            var user = GetUser();
+
+            int friendUserId;
+            int.TryParse(userFriends, out friendUserId);
+
+            _friendService.Remove(user.Id, friendUserId);
+
+            GetInfoAboutFriends(user.Id);
+
+            return View("Index");
         }
 
         private UserBLL GetUser()
@@ -74,14 +92,21 @@ namespace SocialNetwork.WEB.Controllers
             return email == null ? null : _userService.GetByEmail(email);
         }
 
-        private IEnumerable<UserViewModel> GetAllFriends(int userId)
+        private void GetInfoAboutFriends(int userId)
         {
-            return EntityConvert<UserBLL, UserViewModel>(_friendService.GetAllFriends(userId));
+            var friends = EntityConvert < UserBLL, UserViewModel>(_friendService.GetAllFriends(userId));
+            var potentialFriends = EntityConvert<UserBLL, UserViewModel>(_userService.GetAll())
+                                                        .Except(friends, new UserViewModelComparer());
+
+            ViewBag.UserFriends = friends;
+            ViewBag.UserPotentialFriends = potentialFriends;
         }
 
-        private IEnumerable<UserViewModel> GetAllUser()
+        private bool IsFriend(string friendEmail)
         {
-            return EntityConvert<UserBLL, UserViewModel>(_userService.GetAll());
+            var user = GetUser();
+
+            return user != null && _friendService.GetAllFriends(user.Id).Any(p => p.Email == friendEmail);
         }
     }
 }

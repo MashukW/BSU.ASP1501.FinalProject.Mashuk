@@ -221,6 +221,7 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Friend\Index.cshtml" />
+    <Content Include="Views\Friend\ShowFriend.cshtml" />
     <None Include="Views\User\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
