@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BLL.Interface.Entities;
 using BLL.Interface.Services;
+using DAL.Interface.DTO;
 using DAL.Interface.Repository;
+using static SocialNetwork.Helper.HelperConvert;
 
 namespace BLL.Services
 {
@@ -20,34 +23,66 @@ namespace BLL.Services
 
         #region Implementation of interface methods --> IFriendService
         
-        public bool Add(FriendBLL entity)
+        public bool Add(int userId, int friendToAddId)
         {
-            throw new NotImplementedException();
+            if (userId < 0 || friendToAddId < 0)
+                return false;
+
+            bool success = workRepository.FriendRepository.AddFriend(userId, friendToAddId);
+
+            if (!success)
+                return false;
+
+            workRepository.Commit();
+            return true;
         }
 
-        public IEnumerable<FriendBLL> GetAllFriends(int userId)
+        public IEnumerable<UserBLL> GetAllFriends(int userId)
         {
-            throw new NotImplementedException();
+            if (userId < 0)
+                return null;
+
+            var friends = workRepository.FriendRepository.GetFriends(userId);
+
+            return EntityConvert<UserDTO, UserBLL>(friends);
         }
 
         public IEnumerable<FriendBLL> GetAllFriendsSentRequest(int userId)
         {
-            throw new NotImplementedException();
+            if (userId < 0)
+                return null;
+
+            IEnumerable<FriendBLL> friends = EntityConvert<FriendDTO, FriendBLL>(workRepository.FriendRepository.GetAll());
+            
+            return friends.Where(p => p.UserId == userId).Where(p=>p.Confirmed == false);
         }
 
         public FriendBLL GetById(int id)
         {
-            throw new NotImplementedException();
+            return id < 0 ? null : EntityConvert<FriendDTO, FriendBLL>(workRepository.FriendRepository.GetById(id));
         }
 
-        public bool Remove(FriendBLL user, FriendBLL deleteUser)
+        public bool Remove(int userId, int deleteUserId)
         {
-            throw new NotImplementedException();
+            if (userId < 0 || deleteUserId < 0)
+                return false;
+
+            var success = workRepository.FriendRepository.RemoveFriend(userId, deleteUserId);
+
+            if (!success)
+                return false;
+
+            workRepository.Commit();
+            return true;
         }
 
-        public void ToConfirm(FriendBLL fromUser, FriendBLL toUser)
+        public void ToConfirm(int userId, int anyoneСonfirmId)
         {
-            throw new NotImplementedException();
+            if (userId < 0 || anyoneСonfirmId < 0)
+                return;
+
+            workRepository.FriendRepository.ToConfirm(userId, anyoneСonfirmId);
+            workRepository.Commit();
         }
 
         #endregion

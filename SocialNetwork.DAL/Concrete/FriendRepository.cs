@@ -93,12 +93,12 @@ namespace DAL.Concrete
             return EntityConvert<Friend, FriendDTO>(context.Set<Friend>().Find(id));
         }
         
-        public void ToConfirm(int friendToConfirmId)
+        public void ToConfirm(int userId, int anyoneСonfirmId)
         {
-            if (friendToConfirmId < 0)
+            if (userId < 0 || anyoneСonfirmId < 0)
                 return;
 
-            var friendToConfirm = context.Set<Friend>().FirstOrDefault(p => p.Id == friendToConfirmId);
+            var friendToConfirm = context.Set<Friend>().FirstOrDefault(p => p.UserId == userId && p.FriendUserId == anyoneСonfirmId);
 
             if (friendToConfirm == null)
                 return;

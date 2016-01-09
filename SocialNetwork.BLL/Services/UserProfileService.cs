@@ -60,7 +60,14 @@ namespace BLL.Services
 
             UserProfileDTO userProfile = EntityConvert<UserProfileBLL, UserProfileDTO>(entity);
 
-            return workRepository.UserProfileRepository.Update(userProfile);
+            var success = workRepository.UserProfileRepository.Update(userProfile);
+
+            if (!success)
+                return false;
+
+            workRepository.Commit();
+
+            return true;
         }
 
         #endregion

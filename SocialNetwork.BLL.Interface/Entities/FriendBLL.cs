@@ -7,17 +7,17 @@
 
         }
 
-        public FriendBLL(int id, int? fromUserId, int? toUserId, bool confirmed)
+        public FriendBLL(int id, int? friendUserId, int? userId, bool confirmed)
         {
             Id = id;
-            FromUserId = fromUserId;
-            ToUserId = toUserId;
+            UserId = userId;
+            FriendUserId = friendUserId;
             Confirmed = confirmed;
         }
 
         public int Id { get; set; }
-        public int? FromUserId { get; set; }
-        public int? ToUserId { get; set; }
+        public int? UserId { get; set; }
+        public int? FriendUserId { get; set; }
         public bool Confirmed { get; set; }
     }
 }

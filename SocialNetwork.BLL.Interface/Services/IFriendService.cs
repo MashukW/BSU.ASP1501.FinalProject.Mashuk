@@ -5,11 +5,11 @@ namespace BLL.Interface.Services
 {
     public interface IFriendService
     {
-        bool Add(FriendBLL entity);
-        IEnumerable<FriendBLL> GetAllFriends(int userId);
+        bool Add(int userId, int friendToAddId);
+        IEnumerable<UserBLL> GetAllFriends(int userId);
         IEnumerable<FriendBLL> GetAllFriendsSentRequest(int userId);
         FriendBLL GetById(int id);
-        bool Remove(FriendBLL user, FriendBLL deleteUser);
-        void ToConfirm(FriendBLL fromUser, FriendBLL toUser);
+        bool Remove(int userId, int deleteUserId);
+        void ToConfirm(int userId, int anyoneСonfirmId);
     }
 }

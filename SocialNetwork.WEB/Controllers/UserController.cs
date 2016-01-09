@@ -22,30 +22,54 @@ namespace SocialNetwork.WEB.Controllers
             _profileService = userProfileService;
         }
         
-        // GET: User
         public ActionResult Index()
         {
-            var email = User.Identity.Name;
+            var user = GetUser();
 
-            if (email == null)
+            if (user == null)
+                RedirectToAction("Index", "Home");
+            
+            var profile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetProfile(user));
+            
+            return View(profile);
+        }
+        
+        public ActionResult Settings()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Settings(ProfileViewModel profile)
+        {
+            if (profile == null)
+                return null;
+
+            var user = GetUser();
+
+            if (user == null)
                 RedirectToAction("Index", "Home");
 
-            UserBLL user = _userService.GetByEmail(email);
-            var profile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetProfile(user));
-            profile.Street = "Революционная";
-            profile.CompanyOfWork = "Epam";
-            profile.Country = "Беларусь";
-            profile.DateOfBirth = new DateTime(1989, 10, 21);
-            profile.MiddleName = "Викторович";
-            profile.LastName = "Машук";
+            profile.Id = user.Id;
 
+            bool success = _profileService.Update(EntityConvert<ProfileViewModel, UserProfileBLL>(profile));
 
+            if (success)
+            {
+                ViewBag.Success = true;
+                return View(profile);
+            }
+
+            ViewBag.NotSuccess = true;
             return View(profile);
         }
 
-        public ActionResult Settings()
+        private UserBLL GetUser()
         {
-            throw new NotImplementedException();
+            var email = User.Identity.Name;
+
+            return email == null ? null : _userService.GetByEmail(email);
         }
     }
 }

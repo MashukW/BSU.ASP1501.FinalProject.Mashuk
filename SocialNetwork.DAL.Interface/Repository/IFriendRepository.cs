@@ -10,6 +10,6 @@ namespace DAL.Interface.Repository
         IEnumerable<UserDTO> GetFriends(int userId);
         bool RemoveFriend(int userId, int friendToRemoveId);
         bool AddFriend(int userId, int friendToAddId);
-        void ToConfirm(int friendToConfirmId);
+        void ToConfirm(int userId, int anyoneСonfirmId);
     }
 }
