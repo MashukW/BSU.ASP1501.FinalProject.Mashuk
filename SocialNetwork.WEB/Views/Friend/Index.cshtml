@@ -6,16 +6,19 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>User's Friends</h2>
+<h2>Friends User's (@User.Identity.Name)</h2>
 @helper ListFriends(IEnumerable<UserViewModel> friends, string nameForRadioButton)
 {
     foreach (var friend in friends)
     {
-        <div>
-            <input type="radio" name=@nameForRadioButton value=@friend.Id>
-            @Html.ActionLink(friend.FirstName + " (" + friend.Email + ")",
-                "ShowFriend", routeValues: new {id = friend.Id})
-        </div>
+        if (friend.Email != User.Identity.Name)
+        {
+            <div>
+                <input type="radio" name=@nameForRadioButton value=@friend.Id>
+                @Html.ActionLink(friend.FirstName + " (" + friend.Email + ")",
+                    "ShowFriend", routeValues: new {id = friend.Id})
+            </div>
+        }
     }
 }
 

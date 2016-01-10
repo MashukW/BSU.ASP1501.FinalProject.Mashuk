@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>User Personal Settings</h2>
+<h2>Personal Settings: @User.Identity.Name</h2>
 
 @if (ViewBag.Success != null)
 {
-    <div class="container">
-        <div class="alert alert-success">
-            <strong>Success!</strong> Your profile is successfully saved
-        </div>
+    <div class="alert alert-success fade in">
+        @Html.ActionLink("Go Personal Page", "Index", null, htmlAttributes:new {@class="close"})
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
     </div>
 }
 

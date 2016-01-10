@@ -44,7 +44,7 @@ namespace DAL.Concrete
             if (predicate == null)
                 return null;
 
-            var userProfiles =
+            IEnumerable<UserProfile> userProfiles =
                 context.Set<UserProfile>().Include("User").Where(
                     PredicateConvert<UserProfileDTO, UserProfile>(predicate));
 
@@ -89,7 +89,7 @@ namespace DAL.Concrete
             context.Set<UserProfile>().AddOrUpdate(profileToUpdate);
             return true;
         }
-        
+
         #endregion
     }
 }

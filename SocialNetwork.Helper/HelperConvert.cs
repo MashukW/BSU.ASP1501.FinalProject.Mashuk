@@ -10,12 +10,12 @@ namespace SocialNetwork.Helper
         public static Expression<Func<TOut, bool>> PredicateConvert<TIn, TOut>(Expression<Func<TIn, bool>> predicate)
         {
             BinaryExpression body = (BinaryExpression)predicate.Body;
-            ConstantExpression right = (ConstantExpression)body.Right;
+            //UnaryExpression right = (UnaryExpression)body.Right;
             MemberExpression left = (MemberExpression)body.Left;
 
             ParameterExpression parameter = Expression.Parameter(typeof(TOut), "param");
             MemberExpression newLeft = Expression.Property(parameter, left.Member.Name);
-            BinaryExpression newBody = body.Update(newLeft, body.Conversion, right);
+            BinaryExpression newBody = body.Update(newLeft, body.Conversion, body.Right);
 
             return Expression.Lambda<Func<TOut, bool>>(newBody, parameter);
         }

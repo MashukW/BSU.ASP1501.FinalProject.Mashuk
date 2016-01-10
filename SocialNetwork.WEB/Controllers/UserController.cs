@@ -29,14 +29,17 @@ namespace SocialNetwork.WEB.Controllers
             if (user == null)
                 RedirectToAction("Index", "Home");
             
-            var profile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetProfile(user));
+            ViewBag.User = EntityConvert<UserBLL, UserViewModel>(user);
             
-            return View(profile);
+            return View(EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetProfile(user)));
         }
         
         public ActionResult Settings()
         {
-            return View();
+            var user = _userService.GetByEmail(User.Identity.Name);
+            ProfileViewModel profile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetProfile(user));
+
+            return View(profile);
         }
 
         [HttpPost]

@@ -1,0 +1,55 @@
+﻿@model SocialNetwork.WEB.Models.LoggedModel.ProfileViewModel
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="success">
+            <td>@Html.LabelFor(p => p.MiddleName)</td>
+            <td>@Html.DisplayFor(p => p.MiddleName)</td>
+        </tr>
+        <tr class="danger">
+            <td>@Html.LabelFor(p => p.LastName)</td>
+            <td>@Html.DisplayFor(p => p.LastName)</td>
+        </tr>
+        <tr class="info">
+            <td>@Html.LabelFor(p => p.DateOfBirth)</td>
+            <td>@Html.DisplayFor(p => p.DateOfBirth)</td>
+        </tr>
+        <tr class="success">
+            <td>@Html.LabelFor(p => p.Age)</td>
+            <td>@Html.DisplayFor(p => p.Age)</td>
+        </tr>
+        <tr class="danger">
+            <td>@Html.LabelFor(p => p.MobilePhoneNumber)</td>
+            <td>@Html.DisplayFor(p => p.MobilePhoneNumber)</td>
+        </tr>
+        <tr class="info">
+            <td>@Html.LabelFor(p => p.Gender)</td>
+            <td>@Html.DisplayFor(p => p.Gender)</td>
+        </tr>
+        <tr class="success">
+            <td>@Html.LabelFor(p => p.Country)</td>
+            <td>@Html.DisplayFor(p => p.Country)</td>
+        </tr>
+        <tr class="danger">
+            <td>@Html.LabelFor(p => p.City)</td>
+            <td>@Html.DisplayFor(p => p.City)</td>
+        </tr>
+        <tr class="info">
+            <td>@Html.LabelFor(p => p.Street)</td>
+            <td>@Html.DisplayFor(p => p.Street)</td>
+        </tr>
+        <tr class="success">
+            <td>@Html.LabelFor(p => p.HouseNumber)</td>
+            <td>@Html.DisplayFor(p => p.HouseNumber)</td>
+        </tr>
+        <tr class="danger">
+            <td>@Html.LabelFor(p => p.CompanyOfWork)</td>
+            <td>@Html.DisplayFor(p => p.CompanyOfWork)</td>
+        </tr>
+    </tbody>
+</table>

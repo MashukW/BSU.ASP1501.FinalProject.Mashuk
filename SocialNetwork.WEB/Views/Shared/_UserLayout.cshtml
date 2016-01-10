@@ -16,10 +16,16 @@
         </div>
         <ul class="nav navbar-nav">
             <li>@Html.ActionLink("Friends", "Index", "Friend")</li>
-            <li>@Html.ActionLink("Messages", "Index", "User")</li>
-            <li>@Html.ActionLink("Search", "Index", "User")</li>
+            <li>@Html.ActionLink("Messages", "Index", "Message")</li>
             <li>@Html.ActionLink("Profile Settings", "Settings", "User")</li>
             @Html.Partial("_LoginPartial");
+            <li>
+                @using (Html.BeginForm("SearchUsers", "Search", FormMethod.Post, htmlAttributes: new { @class = "form-inline" }))
+                {
+                    <input type="text" name="criterion" class="form-control" id="criterion">
+                    <button type="submit" class="btn btn-default">Search</button>
+                }
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("Hello, " + User.Identity.Name + "!", "Index", "User", routeValues: null, htmlAttributes: new { title = "Manage" })</li>

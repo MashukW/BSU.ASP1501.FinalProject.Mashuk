@@ -17,12 +17,10 @@ namespace SocialNetwork.WEB.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IRoleService _roleService;
         
-        public AccountController(IUserService userService, IRoleService roleService)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
-            _roleService = roleService;
         }
 
         [AllowAnonymous]

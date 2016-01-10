@@ -6,6 +6,7 @@ using DAL.Interface.Repository;
 using Ninject.Modules;
 using Ninject.Web.Common;
 using ORM.EF;
+using SocialNetwork.BLL.Interface.Services;
 
 namespace DependencyResolver
 {
@@ -27,6 +28,7 @@ namespace DependencyResolver
             Bind<IRoleService>().To<RoleService>();
             Bind<IMessageService>().To<MessageService>();
             Bind<IFriendService>().To<FriendService>();
+            Bind<ISearchService>().To<SearchService>();
         }
     }
 }

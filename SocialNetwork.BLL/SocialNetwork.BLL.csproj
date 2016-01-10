@@ -54,6 +54,7 @@
     <Compile Include="Services\FriendService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

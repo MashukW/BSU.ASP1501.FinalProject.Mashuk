@@ -45,16 +45,16 @@ namespace SocialNetwork.WEB.Controllers
 
             int userId;
             int.TryParse(id, out userId);
-            
-            ProfileViewModel userProfile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetById(userId));
+
             UserViewModel userForShow = EntityConvert<UserBLL, UserViewModel>(_userService.GetById(userId));
-            
+            ProfileViewModel profile = EntityConvert<UserProfileBLL, ProfileViewModel>(_profileService.GetById(userId));
+
             if (IsFriend(userForShow.Email))
                 ViewBag.IsFriend = true;
 
-            ViewBag.UserForShow = userForShow;
-
-            return View(userProfile);
+            ViewBag.User = userForShow;
+            
+            return View(profile);
         }
         
         public ActionResult AddFriend(string userPotentialFriends)

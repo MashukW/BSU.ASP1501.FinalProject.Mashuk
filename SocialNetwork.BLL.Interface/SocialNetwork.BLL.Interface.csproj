@@ -50,6 +50,7 @@
     <Compile Include="Services\IFriendService.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\IRoleService.cs" />
+    <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\ServiceCollective\IBaseService.cs" />
     <Compile Include="Services\IUserProfileService.cs" />
     <Compile Include="Services\IUserService.cs" />

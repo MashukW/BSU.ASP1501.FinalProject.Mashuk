@@ -1,9 +1,38 @@
-﻿@model SocialNetwork.WEB.Models.LoggedModel.ProfileViewModel
+﻿@using SocialNetwork.WEB.Models.LoggedModel
+@model ProfileViewModel
 
 @{
     ViewBag.Title = "Show User";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var user = ViewBag.User as UserViewModel;
 }
 
-<h2>Show User</h2>
+@if (User.Identity.Name == user.Email)
+{
+    <h2>Personal Information: @user.FirstName (@user.Email)</h2>
+    <h4>it's my page</h4>
+}
+else
+{
+    <div class="container">
+        <h2>Personal Information: @user.FirstName (@user.Email)</h2>
+        @if (ViewBag.IsFriend == null)
+        {
+            <h4>it's NOT my friend</h4>
+            <div class="btn-group">
+                @Html.ActionLink("Send Message", "SendMessage", "Message", routeValues: new {sendUserId = user.Id}, htmlAttributes: new {@class = "btn btn-primary"})
+                @Html.ActionLink("Add Friend", "AddFriend", routeValues: new {userPotentialFriends = user.Id}, htmlAttributes: new {@class = "btn btn-primary"})
+            </div>
+
+        }
+        else
+        {
+            <h4>it's my friend</h4>
+            @Html.ActionLink("Send Message", "SendMessage", "Message", routeValues: new {sendUserId = user.Id}, htmlAttributes: new {@class = "btn btn-primary"})
+            @Html.ActionLink("Remove Friend", "RemoveFriend", routeValues: new {userFriends = user.Id}, htmlAttributes: new {@class = "btn btn-primary"})
+        }
+    </div>
+    @Html.Partial("_UserProfilePartial")
+}
 

@@ -68,3 +68,4 @@ C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.WEB\bin\EntityFra
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.WEB\bin\System.Web.Providers.dll
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.WEB\bin\System.Web.Providers.xml
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.WEB\bin\DependencyResolver.dll
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.WEB\obj\Debug\SocialNetwork.WEB.csprojResolveAssemblyReference.cache
