@@ -10,6 +10,7 @@ namespace DAL.Interface.Repository
     {
         IEnumerable<UserDTO> GetAllUsersBy(Expression<Func<UserProfileDTO, bool>> predicate);
         UserProfileDTO GetProfile(int userId);
+        IEnumerable<UserProfileDTO> GetAll(); 
         bool Update(UserProfileDTO entity);
     }
 }

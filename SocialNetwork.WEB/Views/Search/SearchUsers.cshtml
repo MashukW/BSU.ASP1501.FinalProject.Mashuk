@@ -1,1 +1,36 @@
-﻿
+﻿@using SocialNetwork.WEB.Models.LoggedModel
+@{
+    ViewBag.Title = "Search Page";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var searchResult = ViewBag.SearchResult as IEnumerable<UserViewModel>;
+}
+
+<h2>Search by criterion: @ViewBag.Criterion</h2>
+@if (searchResult == null)
+{
+    <div>
+        <h4>On your request nothing has been found</h4>
+        <hr/>
+        @Html.ActionLink("Go To Presonal Page", "Index", "User", null, htmlAttributes: new {@class = "btn btn-info"})
+    </div>
+}
+else
+{
+    <h4>Found users</h4>
+    <div>
+        <ul>
+            @foreach (var user in searchResult)
+            {
+                if (user.Email != User.Identity.Name)
+                 {
+                     <li>
+                         @Html.ActionLink(user.FirstName + " (" + user.Email + ")",
+                             "ShowFriend", "Friend", routeValues: new {id = user.Id}, htmlAttributes: null)
+                     </li>
+                 }
+            }
+        </ul>
+        @Html.ActionLink("Go To Presonal Page", "Index", "User", null, htmlAttributes: new {@class = "btn btn-success"})
+    </div>
+}

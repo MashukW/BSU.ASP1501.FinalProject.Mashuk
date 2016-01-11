@@ -6,9 +6,11 @@ namespace BLL.Interface.Services
 {
     public interface IMessageService : IBaseService<MessageBLL>
     {
-        IEnumerable<MessageBLL> GetAllUserMessage(UserBLL fromUser, UserBLL toUser);
-        IEnumerable<MessageBLL> GetAllReaded(UserBLL fromUser, UserBLL toUser);
-        IEnumerable<MessageBLL> GetAllNotReaded(UserBLL fromUser, UserBLL toUser);
-        void Readed(MessageBLL message);
+        IEnumerable<MessageBLL> GetUserAllCorrespondence(int userId);
+        IEnumerable<MessageBLL> GetFromUserMessage(int userId);
+        IEnumerable<MessageBLL> GetToUserMessage(int userId);
+        IEnumerable<MessageBLL> GetAllReaded(int userId);
+        IEnumerable<MessageBLL> GetAllNotReaded(int userId);
+        void Readed(int message);
     }
 }

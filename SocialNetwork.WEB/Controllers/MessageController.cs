@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BLL.Interface.Entities;
 using BLL.Interface.Services;
+using SocialNetwork.WEB.Models.LoggedModel;
+using static SocialNetwork.Helper.HelperConvert;
 
 namespace SocialNetwork.WEB.Controllers
 {
@@ -21,22 +23,38 @@ namespace SocialNetwork.WEB.Controllers
 
         public ActionResult Index()
         {
-            var user = GetUser();
-
-            var userMessages = _messageService.GetAll()
-                                               .Where(p => p.FromUserId == user.Id)
-                                               .GroupBy(p=>p.ToUserId);
-
-
+            Info();
 
             return View();
         }
 
-        public ActionResult SendMessage(int sendUserId)
+        public ActionResult SendMessage(string sendUser)
         {
-            var user = GetUser();
+            ViewBag.SendUser = EntityConvert<UserBLL, UserViewModel>(GetUser(sendUser));
 
-            throw new NotImplementedException();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SendMessage(string sendUserId, string textMessage)
+        {
+            var fromUser = GetUser();
+
+            int sendIdInt;
+            int.TryParse(sendUserId, out sendIdInt);
+
+            _messageService.Add(new MessageBLL()
+            {
+                DateTimeMessage = DateTime.Now,
+                FromUserId = fromUser.Id,
+                ReadMessage = false,
+                TextMessage = textMessage,
+                ToUserId = sendIdInt,
+            });
+
+            Info();
+
+            return View("Index");
         }
 
         private UserBLL GetUser()
@@ -44,6 +62,25 @@ namespace SocialNetwork.WEB.Controllers
             var email = User.Identity.Name;
 
             return email == null ? null : _userService.GetByEmail(email);
+        }
+
+        private UserBLL GetUser(string email)
+        {
+            return email == null ? null : _userService.GetByEmail(email);
+        }
+
+        private void Info()
+        {
+            var user = EntityConvert<UserBLL, UserViewModel>(GetUser());
+
+            var messages = EntityConvert<MessageBLL, MessageViewModel>(
+                _messageService.GetUserAllCorrespondence(user.Id))
+                .GroupBy(p => p.ToUserEmail);
+
+            if (messages.Count() > 0)
+                ViewBag.Messages = messages;
+
+            ViewBag.Person = user;
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿@using System.ComponentModel.Design
+@using SocialNetwork.WEB.Models.LoggedModel
+
+@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var sendUser = ViewBag.SendUser as UserViewModel;
+}
+
+<h2>@User.Identity.Name SEND MESSAGE @sendUser.Email</h2>
+<div class="container">
+    @using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+    {
+        @Html.TextArea("textMessage", htmlAttributes:new {width = 300, height = 300})
+
+        <input type="hidden" name="sendUserId" value=@sendUser.Id />
+        <input type="submit" value="Send Message" class="btn btn-primary"/>
+    }
+</div>
+

@@ -15,5 +15,6 @@ C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\bin\Debug\Ent
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\bin\Debug\EntityFramework.xml
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\obj\Debug\SocialNetwork.ORM.csprojResolveAssemblyReference.cache
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\obj\Debug\SocialNetwork.ORM.dll
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.ORM\obj\Debug\SocialNetwork.ORM.pdb

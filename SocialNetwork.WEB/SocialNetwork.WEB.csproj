@@ -163,9 +163,11 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FriendController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ModerationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -229,10 +231,14 @@
     <Content Include="Views\Shared\_UserProfilePartial.cshtml" />
     <Content Include="Views\Search\SearchUsers.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\SendMessage.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Views\User\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Views\Moderation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

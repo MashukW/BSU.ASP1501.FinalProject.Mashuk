@@ -6,4 +6,3 @@ C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.DAL.Interface\bin
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.DAL.Interface\bin\Debug\SocialNetwork.DAL.Interface.pdb
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.DAL.Interface\obj\Debug\SocialNetwork.DAL.Interface.dll
 C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.DAL.Interface\obj\Debug\SocialNetwork.DAL.Interface.pdb
-C:\Users\mashu\Desktop\EPAM\SocialNetworkProject\SocialNetwork.DAL.Interface\obj\Debug\SocialNetwork.DAL.Interface.csprojResolveAssemblyReference.cache

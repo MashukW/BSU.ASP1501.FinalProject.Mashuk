@@ -23,7 +23,10 @@ namespace BLL.Interface.Entities
         public int Id { get; set; }
         public string TextMessage { get; set; }
         public int FromUserId { get; set; }
+        public string FromUserName { get; set; }
         public int? ToUserId { get; set; }
+        public string ToUserName { get; set; }
+        public string ToUserEmail { get; set; }
         public DateTime DateTimeMessage { get; set; }
         public bool ReadMessage { get; set; }
     }

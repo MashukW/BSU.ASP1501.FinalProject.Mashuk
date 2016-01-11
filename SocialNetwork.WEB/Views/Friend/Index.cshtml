@@ -23,8 +23,9 @@
 }
 
 <div>
-    
+
     <div>
+        <h4>It's user Friends</h4>
         <div class="list-group">
             @using (Html.BeginForm("RemoveFriend", "Friend", FormMethod.Post))
             {
@@ -35,6 +36,7 @@
     </div>
 
     <div>
+        <h4>It's POTENTIAL user Friends</h4>
         <div class="list-group">
             @using (Html.BeginForm("AddFriend", "Friend", FormMethod.Post))
             {

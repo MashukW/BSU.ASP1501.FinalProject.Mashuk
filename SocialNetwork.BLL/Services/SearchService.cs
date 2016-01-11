@@ -60,9 +60,8 @@ namespace BLL.Services
                 workRepository.UserProfileRepository
                     .GetAllUsersBy(p => p.HouseNumber == criterion),
 
-                // userByAge
-                workRepository.UserProfileRepository
-                    .GetAllUsersBy(p => p.Age == criterion)
+                // userByAge(Age is ignoreProp)
+                SearchByIgnoreProp(criterion)
             };
 
             return GetResultSearch(result);
@@ -116,6 +115,28 @@ namespace BLL.Services
             };
             
             return GetResultSearch(result);
+        }
+
+        private IEnumerable<UserDTO> SearchByIgnoreProp(int criterion)
+        {
+            if (criterion == default(int))
+                return null;
+
+            var allProfile = workRepository.UserProfileRepository.GetAll().Where(p => p.Age == criterion);
+
+            if (allProfile == null)
+                return null;
+
+            var users = new List<UserDTO>();
+
+            foreach (var profile in allProfile)
+            {
+                var user = workRepository.UserRepository.GetById(profile.Id);
+
+                users.Add(user);
+            }
+            
+            return users;
         }
 
         private IEnumerable<UserBLL> GetResultSearch(List<IEnumerable<UserDTO>> users)

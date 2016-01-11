@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var grid = new WebGrid(Model);
+}
+
+<h2>Index</h2>
+@grid.GetHtml(
+    columns: grid.Columns(
+        grid.Column(columnName: "FirstName", header: "FirstName"),
+        grid.Column(header: "First Name", canSort: false),
+        grid.Column(header: "Add User In Role", format: @<a href="~/Controllers/Admin/AddRole/@item.Id">Add To Role</a>),
+        grid.Column(header: "Email", format: @<a href="~/Controllers/Admin/RemoveUser/@item.Id">Remove User</a>),
+        grid.Column(header: "Email", format: @<a href="~/Controllers/Admin/ChangePassword/@item.Id">Change Password</a>)
+    )
+)

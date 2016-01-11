@@ -90,6 +90,11 @@ namespace DAL.Concrete
             return true;
         }
 
+        public IEnumerable<UserProfileDTO> GetAll()
+        {
+            return EntityConvert<UserProfile, UserProfileDTO>(context.Set<UserProfile>());
+        }
+
         #endregion
     }
 }

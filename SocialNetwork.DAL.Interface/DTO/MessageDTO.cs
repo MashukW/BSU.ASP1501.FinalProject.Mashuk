@@ -10,7 +10,7 @@ namespace DAL.Interface.DTO
         }
 
         public MessageDTO(int id, string textMessage, int fromUserId, 
-            int? toUserId, DateTime dateTimeMessage, bool readMessage)
+            int? toUserId, DateTime dateTimeMessage, bool readMessage, string toUserName)
         {
             Id = id;
             TextMessage = textMessage;

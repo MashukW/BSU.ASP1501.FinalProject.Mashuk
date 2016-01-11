@@ -19,31 +19,57 @@ namespace BLL.Services
 
         #region Implementation of interface methods --> IMessageService
 
-        public IEnumerable<MessageBLL> GetAllUserMessage(UserBLL fromUser, UserBLL toUser)
+        public IEnumerable<MessageBLL> GetUserAllCorrespondence(int userId)
         {
-            if (fromUser == null || toUser == null)
+            if (userId < 0)
                 return null;
 
-            return EntityConvert<MessageDTO, MessageBLL>(
-                workRepository.MessageRepository.GetAllUserMessage(fromUser.Id, toUser.Id));
+            var messages = EntityConvert<MessageDTO, MessageBLL>(
+                workRepository.MessageRepository.GetUserAllCorrespondence(userId));
+
+            return AddName(messages);
         }
 
-        public IEnumerable<MessageBLL> GetAllNotReaded(UserBLL fromUser, UserBLL toUser)
+        public IEnumerable<MessageBLL> GetFromUserMessage(int userId)
         {
-            return GetAllUserMessage(fromUser, toUser).Where(p => !p.ReadMessage);
+            if (userId < 0)
+                return null;
+
+            var fromUserMessage = EntityConvert<MessageDTO, MessageBLL>(
+                workRepository.MessageRepository.GetFromUserMessage(userId));
+
+            return AddName(fromUserMessage);
         }
 
-        public IEnumerable<MessageBLL> GetAllReaded(UserBLL fromUser, UserBLL toUser)
+        public IEnumerable<MessageBLL> GetToUserMessage(int userId)
         {
-            return GetAllUserMessage(fromUser, toUser).Where(p => p.ReadMessage);
+            if (userId < 0)
+                return null;
+
+            var toUserMessage = EntityConvert<MessageDTO, MessageBLL>(
+                workRepository.MessageRepository.GetToUserMessage(userId));
+
+            return AddName(toUserMessage);
+        }
+
+        public IEnumerable<MessageBLL> GetAllNotReaded(int userId)
+        {
+            throw new NotImplementedException();
+            // return GetAllUserMessage(userId).Where(p => !p.ReadMessage);
+        }
+
+        public IEnumerable<MessageBLL> GetAllReaded(int userId)
+        {
+            throw new NotImplementedException();
+            // return GetAllUserMessage(userId).Where(p => p.ReadMessage);
         }
         
-        public void Readed(MessageBLL message)
+        public void Readed(int messageId)
         {
-            if (message == null)
+            if (messageId < 0)
                 return;
 
-            workRepository.MessageRepository.ToRead(message.Id);
+            workRepository.MessageRepository.ToRead(messageId);
         }
 
         #endregion
@@ -56,5 +82,28 @@ namespace BLL.Services
         }
 
         #endregion
+
+        private UserDTO GetUser(int userid)
+        {
+            return workRepository.UserRepository.GetById(userid);
+        }
+
+        private IEnumerable<MessageBLL> AddName(IEnumerable<MessageBLL> messages)
+        {
+            foreach (var message in messages)
+            {
+                message.FromUserName = GetUser(message.FromUserId).FirstName;
+
+                if (message.ToUserId != null)
+                {
+                    int toUserId = message.ToUserId.Value;
+                    var user = GetUser(toUserId);
+                    message.ToUserName = user.FirstName;
+                    message.ToUserEmail = user.Email;
+                }
+            }
+
+            return messages;
+        }
     }
 }

@@ -21,15 +21,43 @@ namespace DAL.Concrete
         
         #region Implementation of interface methods --> IMessageRepository
 
-        public IEnumerable<MessageDTO> GetAllUserMessage(int fromUserId, int toUserId)
+        public IEnumerable<MessageDTO> GetAllUserMessage(int userId)
         {
-            if (fromUserId < 0 || toUserId < 0)
+            if (userId < 0)
                 return null;
 
-            var messagers = context.Set<Message>().Where(
-                p => p.FromUserId == fromUserId && p.ToUserId == toUserId);
+            var messagers = context.Set<Message>().Where(p => p.FromUserId == userId);
 
             return EntityConvert<Message, MessageDTO>(messagers);
+        }
+        
+        public IEnumerable<MessageDTO> GetFromUserMessage(int userId)
+        {
+            if (userId < 0)
+                return null;
+
+            return EntityConvert<Message, MessageDTO>(context.Set<Message>()
+                .Where(p => p.FromUserId == userId));
+        }
+
+        public IEnumerable<MessageDTO> GetToUserMessage(int userId)
+        {
+            if (userId < 0)
+                return null;
+
+            return EntityConvert<Message, MessageDTO>(context.Set<Message>()
+                .Where(p => p.ToUserId.Value == userId));
+        }
+
+        public IEnumerable<MessageDTO> GetUserAllCorrespondence(int userId)
+        {
+            if (userId < 0)
+                return null;
+
+            var fromUserMessage = context.Set<Message>().Where(p => p.FromUserId == userId);
+            var toUserMessage = context.Set<Message>().Where(p => p.ToUserId.Value == userId);
+
+            return EntityConvert<Message, MessageDTO>(fromUserMessage.Union(toUserMessage));
         }
 
         public void ToRead(int readMessageId)
@@ -45,9 +73,9 @@ namespace DAL.Concrete
             readedMessage.ReadMessage = true;
             context.Set<Message>().AddOrUpdate(readedMessage);
         }
-
-        #endregion
         
+        #endregion
+
         #region Overridden methods of the abstract class --> BaseRepository
 
         public override bool Update(MessageDTO entity)
@@ -67,7 +95,7 @@ namespace DAL.Concrete
                 ReadMessage = p.ReadMessage 
             };
         }
-
+        
         #endregion
     }
 }

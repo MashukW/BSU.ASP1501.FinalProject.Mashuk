@@ -115,7 +115,7 @@ namespace DAL
 
         #endregion
 
-        protected TEntityDB GetEntity(int id)
+        protected TEntityDB GetEntity(int? id)
         {
             return context.Set<TEntityDB>().FirstOrDefault(p => p.Id == id);
         }

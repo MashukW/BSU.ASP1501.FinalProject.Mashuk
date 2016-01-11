@@ -6,7 +6,10 @@ namespace DAL.Interface.Repository
 {
     public interface IMessageRepository : IRepository<MessageDTO>
     {
-        IEnumerable<MessageDTO> GetAllUserMessage(int fromUserId, int toUserId);
+        IEnumerable<MessageDTO> GetUserAllCorrespondence(int userId);
+        IEnumerable<MessageDTO> GetFromUserMessage(int userId);
+        IEnumerable<MessageDTO> GetToUserMessage(int userId);
+        IEnumerable<MessageDTO> GetAllUserMessage(int userId);
         void ToRead(int readMessageId);
     }
 }

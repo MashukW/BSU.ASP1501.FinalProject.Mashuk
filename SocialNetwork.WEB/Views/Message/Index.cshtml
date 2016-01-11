@@ -1,1 +1,58 @@
-﻿
+﻿@using SocialNetwork.WEB.Models.LoggedModel
+
+@{
+    ViewBag.Title = "Message Page";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+    var messages = ViewBag.Messages as IEnumerable<IGrouping<string, MessageViewModel>>;
+    var person = ViewBag.Person as UserViewModel;
+}
+
+<div class="container">
+    <h2>Message User's (@User.Identity.Name)</h2>
+
+    @if (messages == null)
+    {
+        <div class="alert alert-info">
+            @Html.ActionLink("Go To Personal Page", "Index", "User", null, new { @class = "close" })
+            <strong>Info!</strong> You have no messages!
+        </div>
+    }
+
+    else
+    {
+        <div class="panel panel-default">
+            @foreach (var message in messages)
+            {
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        @if (User.Identity.Name == message.Key)
+                        {
+                            <a data-toggle="collapse" data-parent="#accordion" href="#@message.Key">@message.Key (it's i am)</a>
+                        }
+                        else
+                        {
+                            <a data-toggle="collapse" data-parent="#accordion" href="#@message.Key">@message.Key</a>
+                        }
+                    </h4>
+                </div>
+                <div id=@message.Key class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        @Html.ActionLink("Send Message " + message.Key, "SendMessage", routeValues: new { sendUser = message.Key })
+                        @foreach (var mess in message)
+                        {
+                            <dl>
+                                <dt>@mess.FromUserName send @mess.ToUserName</dt>
+                                <dd>@mess.TextMessage</dd>
+                                <p>@mess.DateTimeMessage</p>
+                            </dl>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+
+
